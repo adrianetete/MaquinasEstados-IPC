@@ -6,6 +6,8 @@
 package main;
 
 import java.util.ArrayList;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import model.User;
 import view.home.Home;
 import view.login.Login;
@@ -22,7 +24,24 @@ public class Main {
     public static ArrayList<User> mUsersList;
     
     public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
+        
+        try {
+            // Set System L&F
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } 
+        catch (UnsupportedLookAndFeelException e) {
+           // handle exception
+        }
+        catch (ClassNotFoundException e) {
+           // handle exception
+        }
+        catch (InstantiationException e) {
+           // handle exception
+        }
+        catch (IllegalAccessException e) {
+           // handle exception
+        }
+        
         mUsersList= new ArrayList<User>();
         mUsersList.add(new User("pedro", "1234", "usuario"));
         

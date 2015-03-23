@@ -50,6 +50,11 @@ public class LoginWindow extends javax.swing.JFrame {
         });
 
         btn_RestorePass.setText("Restore Password");
+        btn_RestorePass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RestorePassActionPerformed(evt);
+            }
+        });
 
         lbl_user.setText("User:");
 
@@ -129,6 +134,10 @@ public class LoginWindow extends javax.swing.JFrame {
             logController.login();
         }
     }//GEN-LAST:event_txt_passwdKeyReleased
+
+    private void btn_RestorePassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RestorePassActionPerformed
+        Main.loginStateMachine.recoverPassword();
+    }//GEN-LAST:event_btn_RestorePassActionPerformed
     public String getNombre(){
         return txt_user.getText();
     }

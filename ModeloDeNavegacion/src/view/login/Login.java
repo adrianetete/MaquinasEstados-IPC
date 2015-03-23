@@ -23,7 +23,19 @@ public class Login {
                 currentState.setVisible(true);
             } 
         });
-    } 
+    }
+    
+    public void restart(){
+        currentState.setVisible(false); // si se desea ocultar 
+        currentState.dispose(); // si se desea destruir  
+        java.awt.EventQueue.invokeLater( 
+            new Runnable() {
+                public void run() {
+                currentState = new LoginWindow(); 
+                currentState.setVisible(true);
+            } 
+        });
+    }
 
     public void recoverPassword() {
         currentState.setVisible(false); // si se desea ocultar 

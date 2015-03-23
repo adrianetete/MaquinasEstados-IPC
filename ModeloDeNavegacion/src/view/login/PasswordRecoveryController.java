@@ -21,6 +21,6 @@ public class PasswordRecoveryController {
     }
     
     public void back(){
-        Main.loginStateMachine.recoverPassword();
+        Main.loginStateMachine.restart();
     }
 }
