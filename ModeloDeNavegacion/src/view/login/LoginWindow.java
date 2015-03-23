@@ -16,8 +16,11 @@ public class LoginWindow extends javax.swing.JFrame {
     /**
      * Creates new form LoginWindow
      */
+    LoginController logController;
+    
     public LoginWindow() {
         initComponents();
+        logController = new LoginController(this);
     }
 
     /**
@@ -30,41 +33,71 @@ public class LoginWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButtonLogin = new javax.swing.JButton();
-        jButtonRestorePass = new javax.swing.JButton();
+        btn_Login = new javax.swing.JButton();
+        btn_RestorePass = new javax.swing.JButton();
+        lbl_user = new javax.swing.JLabel();
+        txt_user = new javax.swing.JTextField();
+        lbl_passwd = new javax.swing.JLabel();
+        txt_passwd = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonLogin.setText("Login");
-        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+        btn_Login.setText("Login");
+        btn_Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLoginActionPerformed(evt);
+                btn_LoginActionPerformed(evt);
             }
         });
 
-        jButtonRestorePass.setText("Restore Password");
+        btn_RestorePass.setText("Restore Password");
+
+        lbl_user.setText("User:");
+
+        lbl_passwd.setText("Password:");
+
+        txt_passwd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_passwdKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButtonLogin)
-                    .addComponent(jButtonRestorePass))
-                .addGap(0, 234, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_RestorePass)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                        .addComponent(btn_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_passwd)
+                            .addComponent(lbl_user))
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_user)
+                            .addComponent(txt_passwd))))
+                .addGap(28, 28, 28))
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonLogin, jButtonRestorePass});
-
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonLogin)
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_user)
+                    .addComponent(txt_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonRestorePass)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_passwd)
+                    .addComponent(txt_passwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_Login)
+                    .addComponent(btn_RestorePass))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -87,14 +120,36 @@ public class LoginWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        Main.loginSucceed();
-    }//GEN-LAST:event_jButtonLoginActionPerformed
+    private void btn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LoginActionPerformed
+        logController.login();
+    }//GEN-LAST:event_btn_LoginActionPerformed
 
+    private void txt_passwdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passwdKeyReleased
+        if(evt.getKeyCode() == 10){
+            logController.login();
+        }
+    }//GEN-LAST:event_txt_passwdKeyReleased
+    public String getNombre(){
+        return txt_user.getText();
+    }
+    public char[] getPass(){
+        return txt_passwd.getPassword();
+    }
+    public void resetUser(){
+        txt_user.setText("");
+    }
+    public void resetPass(){
+        txt_passwd.setText("");
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonLogin;
-    private javax.swing.JButton jButtonRestorePass;
+    private javax.swing.JButton btn_Login;
+    private javax.swing.JButton btn_RestorePass;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbl_passwd;
+    private javax.swing.JLabel lbl_user;
+    private javax.swing.JPasswordField txt_passwd;
+    private javax.swing.JTextField txt_user;
     // End of variables declaration//GEN-END:variables
 }

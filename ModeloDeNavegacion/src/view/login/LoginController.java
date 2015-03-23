@@ -5,10 +5,49 @@
  */
 package view.login;
 
+import main.Main;
+import model.User;
+
 /**
  *
  * @author garciparedes
  */
 public class LoginController {
+
+    LoginWindow logView;
     
+    public LoginController(LoginWindow logView) {
+ 
+        this.logView = logView;
+    }
+    
+    private void reset(){
+        
+        logView.resetPass();
+        logView.resetUser();
+    }    
+    
+    public void login(){
+        
+        String nombre = logView.getNombre();
+        char[] passChar = logView.getPass();
+        User usu;
+        
+        String pass = "";
+        
+        for(int i = 0; i < passChar.length; i++){
+            pass += passChar[i];
+        }
+        
+        usu = new User(nombre, pass, "usuario");
+        
+        if(Main.mUsersList.get(0).getNombre().equals(usu.getNombre()) &&
+                Main.mUsersList.get(0).getPassw().equals(usu.getPassw())){
+            
+            Main.loginSucceed(usu);
+            
+        }
+        reset();
+        
+    }
 }

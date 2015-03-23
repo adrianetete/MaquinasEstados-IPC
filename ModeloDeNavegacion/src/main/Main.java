@@ -6,7 +6,6 @@
 package main;
 
 import java.util.ArrayList;
-import javax.swing.JFrame;
 import model.User;
 import view.home.Home;
 import view.login.Login;
@@ -17,15 +16,15 @@ import view.login.Login;
  */
 public class Main {
     
-    private static Login loginStateMachine; 
-    private static Home homeStateMachine;
+    public static Login loginStateMachine; 
+    public static Home homeStateMachine;
     
-    private static ArrayList<User> mUsersList;
+    public static ArrayList<User> mUsersList;
     
     public static void main(String args[]) {
     /* Set the Nimbus look and feel */
         mUsersList= new ArrayList<User>();
-        mUsersList.add(new User("nombre", "contraseña", "Pepito"));
+        mUsersList.add(new User("pedro", "1234", "usuario"));
         
         loginStateMachine = new Login();
     }
@@ -33,10 +32,15 @@ public class Main {
         return loginStateMachine; 
     }
     
-    public static void loginSucceed() { 
-        loginStateMachine.close(); 
-        homeStateMachine = new Home();
+    public static void loginSucceed(User usuario) { 
+        
+        loginStateMachine.close();
+        homeStateMachine = new Home(usuario);
     }
+    public static void volverLogin(){
+        loginStateMachine.show();
+    }
+    
     
     public static Home getStateMachineHome() {
         return homeStateMachine; 

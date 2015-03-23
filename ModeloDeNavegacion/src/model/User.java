@@ -23,4 +23,10 @@ public class User {
         this.mName = name;
     }
 
+    public String getNombre(){
+        return this.mUsername;
+    }
+    public String getPassw(){
+        return this.mPassword;
+    }
 }

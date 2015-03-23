@@ -12,6 +12,7 @@ import javax.swing.JFrame;
  * @author garciparedes
  */
 public class Login {
+    
     private JFrame currentState;
     
     public Login() {
@@ -24,7 +25,6 @@ public class Login {
         });
     } 
 
-    
     public void recoverPassword() {
         currentState.setVisible(false); // si se desea ocultar 
         currentState.dispose(); // si se desea destruir  
@@ -32,7 +32,7 @@ public class Login {
         java.awt.EventQueue.invokeLater(
             new Runnable() { public void run() {
                 currentState = new PasswordRecoveryWindow();
-                currentState.setVisible(true); 
+                currentState.setVisible(true);
             }
         });
     }
@@ -40,6 +40,9 @@ public class Login {
     public void close() {
         currentState.setVisible(false);
     }
-    
+    public void show(){         
+        
+        currentState.setVisible(true);
+    }
     
 }

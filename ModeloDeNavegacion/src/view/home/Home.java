@@ -5,18 +5,25 @@
  */
 package view.home;
 
+import javax.swing.JFrame;
+import model.User;
+
 /**
  *
  * @author garciparedes
  */
 public class Home {
     
-    public Home(){
+    private JFrame home;
+    
+    public Home(final User u){
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomeWindow().setVisible(true);
+                
+                home = new HomeWindow(u);
+                home.setVisible(true);
             }
         });
     }
-    
+
 }
