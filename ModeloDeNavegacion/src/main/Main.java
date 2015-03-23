@@ -44,6 +44,7 @@ public class Main {
         
         mUsersList= new ArrayList<User>();
         mUsersList.add(new User("pedro", "1234", "usuario"));
+        mUsersList.add(new User("adri", "1234", "usuario"));
         
         loginStateMachine = new Login();
     }

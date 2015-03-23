@@ -41,6 +41,16 @@ public class LoginController {
         
         usu = new User(nombre, pass, "usuario");
         
+        for(User u: Main.mUsersList){
+            
+            if(u.getNombre().equals(usu.getNombre())
+                    && u.getPassw().equals(usu.getPassw())){
+            
+                Main.loginSucceed(usu);
+                break;
+            }
+        }
+        
         if(Main.mUsersList.get(0).getNombre().equals(usu.getNombre()) &&
                 Main.mUsersList.get(0).getPassw().equals(usu.getPassw())){
             
