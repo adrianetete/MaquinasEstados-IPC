@@ -39,6 +39,7 @@ public class LoginWindow extends javax.swing.JFrame {
         txt_user = new javax.swing.JTextField();
         lbl_passwd = new javax.swing.JLabel();
         txt_passwd = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_info = new javax.swing.JTextArea();
 
@@ -68,25 +69,34 @@ public class LoginWindow extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Help");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_RestorePass)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                        .addComponent(btn_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_passwd)
                             .addComponent(lbl_user))
                         .addGap(52, 52, 52)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_passwd, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                            .addComponent(txt_user))))
+                            .addComponent(txt_user)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(27, 27, 27)
+                        .addComponent(btn_RestorePass)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addComponent(btn_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -103,7 +113,8 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(18, 30, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Login)
-                    .addComponent(btn_RestorePass)))
+                    .addComponent(btn_RestorePass)
+                    .addComponent(jButton1)))
         );
 
         txt_info.setColumns(20);
@@ -150,6 +161,10 @@ public class LoginWindow extends javax.swing.JFrame {
     private void btn_RestorePassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RestorePassActionPerformed
         Main.loginStateMachine.recoverPassword();
     }//GEN-LAST:event_btn_RestorePassActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Main.loginStateMachine.help();
+    }//GEN-LAST:event_jButton1ActionPerformed
     public String getNombre(){
         return txt_user.getText();
     }
@@ -167,6 +182,7 @@ public class LoginWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Login;
     private javax.swing.JButton btn_RestorePass;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_passwd;

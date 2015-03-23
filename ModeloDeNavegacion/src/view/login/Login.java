@@ -48,6 +48,17 @@ public class Login {
             }
         });
     }
+     public void help() {
+        currentState.setVisible(false); // si se desea ocultar 
+        currentState.dispose(); // si se desea destruir  
+            //realiza transición 
+        java.awt.EventQueue.invokeLater(
+            new Runnable() { public void run() {
+                currentState = new HelpWindow();
+                currentState.setVisible(true);
+            }
+        });
+    }
 
     public void close() {
         currentState.setVisible(false);
