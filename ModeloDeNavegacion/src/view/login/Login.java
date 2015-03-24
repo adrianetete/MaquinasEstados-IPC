@@ -9,7 +9,8 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author garciparedes
+ * @author Adrian Calvo Rojo
+ * @author Sergio Garcia Praddo
  */
 public class Login {
     

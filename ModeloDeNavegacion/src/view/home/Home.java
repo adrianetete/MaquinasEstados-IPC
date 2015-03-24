@@ -9,8 +9,8 @@ import javax.swing.JFrame;
 import model.User;
 
 /**
- *
- * @author garciparedes
+ * @author Adrian Calvo Rojo
+ * @author Sergio Garcia Praddo
  */
 public class Home {
     

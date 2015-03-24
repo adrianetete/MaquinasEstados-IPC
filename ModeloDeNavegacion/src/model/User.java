@@ -6,8 +6,9 @@
 package model;
 
 /**
- *
- * @author garciparedes
+ * 
+ * @author Adrian Calvo Rojo
+ * @author Sergio Garcia Praddo
  */
 public class User {
     

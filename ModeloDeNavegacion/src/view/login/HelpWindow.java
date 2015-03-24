@@ -7,7 +7,8 @@ package view.login;
 
 /**
  *
- * @author garciparedes
+ * @author Adrian Calvo Rojo
+ * @author Sergio Garcia Praddo
  */
 public class HelpWindow extends javax.swing.JFrame {
 

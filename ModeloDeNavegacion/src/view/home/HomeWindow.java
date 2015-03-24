@@ -9,7 +9,8 @@ import model.User;
 
 /**
  *
- * @author garciparedes
+ * @author Adrian Calvo Rojo
+ * @author Sergio Garcia Praddo
  */
 public class HomeWindow extends javax.swing.JFrame {
 

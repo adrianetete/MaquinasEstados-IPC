@@ -9,7 +9,8 @@ import main.Main;
 
 /**
  *
- * @author garciparedes
+ * @author @author Adrian Calvo Rojo
+ * @author Sergio Garcia Praddo
  */
 public class LoginWindow extends javax.swing.JFrame {
 

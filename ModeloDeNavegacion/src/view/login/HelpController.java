@@ -9,7 +9,8 @@ import main.Main;
 
 /**
  *
- * @author adri
+ * @author Adrian Calvo Rojo
+ * @author Sergio Garcia Praddo
  */
 public class HelpController {
     

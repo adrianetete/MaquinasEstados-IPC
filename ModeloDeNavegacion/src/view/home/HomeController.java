@@ -10,7 +10,8 @@ import model.User;
 
 /**
  * 
- * @author adri
+ * @author Adrian Calvo Rojo
+ * @author Sergio Garcia Praddo
  */
 public class HomeController {
 

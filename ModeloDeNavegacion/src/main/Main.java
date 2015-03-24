@@ -14,7 +14,8 @@ import view.login.Login;
 
 /**
  *
- * @author garciparedes
+ * @author Adrian Calvo Rojo
+ * @author Sergio Garcia Praddo
  */
 public class Main {
     
